@@ -1,6 +1,9 @@
 # Logs
 logs
 *.log
+config/*.yml
+config/*.yaml
+
 
 # Runtime data
 pids
