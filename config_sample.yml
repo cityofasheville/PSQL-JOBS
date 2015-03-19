@@ -1,0 +1,13 @@
+databases:
+- host: HOSTORIP
+  database: DATABASENAME
+  user: USERNAME
+  pasword: PASSWORD
+  sqlfiles:
+    - sqlfile: sql/SQLFILE.sql
+- host: HOSTORIP
+  database: DATABASENAME
+  user: USERNAME
+  pasword: PASSWORD
+  sqlfiles:
+    - sqlfile: sql/SQLFILE.sql
