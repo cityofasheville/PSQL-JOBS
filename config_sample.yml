@@ -1,13 +1,17 @@
 databases:
-- host: HOSTORIP
+- host: HOSTorIP
   database: DATABASENAME
   user: USERNAME
-  pasword: PASSWORD
-  sqlfiles:
-    - sqlfile: sql/SQLFILE.sql
-- host: HOSTORIP
+  password: PASSWORD
+  preparedStatments:
+   - name: GENERIC_NAME
+     text: SQl_STATEMENT
+     values: ARRAY_OF_PARAMATERS
+- host: HOSTorIP
   database: DATABASENAME
   user: USERNAME
-  pasword: PASSWORD
-  sqlfiles:
-    - sqlfile: sql/SQLFILE.sql
+  password: PASSWORD
+  preparedStatments:
+   - name: GENERIC_NAME
+     text: SQl_STATEMENT
+     values: ARRAY_OF_PARAMATERS
