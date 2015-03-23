@@ -45,9 +45,9 @@ pg.end();
 	var spawn = require('child_process').spawn,
 	    sql    = spawn('psql', ['-U'+obj[prop].user,'-h'+obj[prop].host,'-d'+obj[prop].database,'-f'+aSQLFiles[aSQLFile].file],{env: envPG});
 
-	sql.stdout.on('data', function (data) {
-	  console.log('stdout: ' + data);
-	});
+	//sql.stdout.on('data', function (data) {
+	//  console.log('stdout: ' + data);
+	//});
 
 	sql.stderr.on('data', function (data) {
 	  console.log('stderr: ' + data);
