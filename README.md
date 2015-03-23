@@ -11,8 +11,7 @@ $ npm install
 $ cp config_sample.yml config/config.yml
 ```
 
-edit `config/config.yml`
-update with your settings.
+edit `config/config.yml` and update with your settings.
 
 example:
 
