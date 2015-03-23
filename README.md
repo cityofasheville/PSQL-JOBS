@@ -1,6 +1,6 @@
 # Node Based PSQL-JOBS
 
-Run PostGreSQL jobs as simple [Parameterized Queries](#Parameterized-Queries) or from [SQL files](#SQL-files).
+Run PostGreSQL jobs as simple [Parameterized Queries](#parameterized-queries) or from [SQL files](#sql-files).
 
 ##Install
 
