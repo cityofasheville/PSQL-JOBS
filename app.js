@@ -39,11 +39,12 @@ for (var prop in obj) {
 pg.end();
 
   for (var aSQLFile in aSQLFiles){
+    console.log(aSQLFiles[aSQLFile])
     envPG = {};
     envPG['PGPASSWORD'] = obj[prop].password;
 
 	var spawn = require('child_process').spawn,
-	    sql    = spawn('psql', ['-U'+obj[prop].user,'-h'+obj[prop].host,'-d'+obj[prop].database,'-f'+aSQLFiles[aSQLFile].file],{env: envPG});
+	    sql    = spawn('/usr/pgsql-9.2/bin/psql', ['-U'+obj[prop].user,'-h'+obj[prop].host,'-d'+obj[prop].database,'-f'+aSQLFiles[aSQLFile].file],{env: envPG});
 
 	sql.stdout.on('data', function (data) {
 	  console.log('stdout: ' + data);
@@ -58,5 +59,7 @@ pg.end();
 	});
    
   }
+
 };
+
 
