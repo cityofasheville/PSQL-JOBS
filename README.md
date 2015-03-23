@@ -1,7 +1,6 @@
 # Node Based PSQL-JOBS
 
-Run PostGreSQL jobs as simple [Parameterized](#Parameterized-Queries) or from [SQL files](#SQL-files).
-
+Run PostGreSQL jobs as simple [Parameterized Queries](#Parameterized-Queries) or from [SQL files](#SQL-files).
 
 ##Install
 
@@ -13,7 +12,6 @@ $ cp config_sample.yml config/config.yml
 
 edit `config/config.yml`
 update with your settings.
-
 
 
 ##Parameterized Queries
