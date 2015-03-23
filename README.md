@@ -32,6 +32,7 @@ databases:
   - name: INSERT data
     test: INSERT INTO  schema.table values($1,$1)
     values: [1,'test']
+  sqlFiles:
   - name: test1
     file: sql/sqlfile1.sql
   - name: test2
