@@ -6,6 +6,7 @@ Run PostGreSQL jobs as simple [Parameterized Queries](#Parameterized-Queries) or
 
 ```sh
 $ git clone https://github.com/cityofasheville/PSQL-JOBS.git
+$ cd PSQL-JOBS 
 $ npm install 
 $ cp config_sample.yml config/config.yml
 ```
@@ -13,6 +14,27 @@ $ cp config_sample.yml config/config.yml
 edit `config/config.yml`
 update with your settings.
 
+example:
+
+```yaml
+databases:
+- host: 192.168.0.1
+  database: database
+  user: postgres
+  password: postgres
+  preparedStatments:
+  - name: reindex database
+    text: REINDEX DATATABASE database;
+    values:
+  - name: VACUUM schema.table;
+    text: VACUUM ANALYZE schema.table;
+    values:
+  sqlFiles:
+  - name: test1
+    file: sql/sqlfile1.sql
+  - name: test2
+    file: sql/sqlfile2.sql
+````
 
 ##Parameterized Queries
 
