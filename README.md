@@ -29,12 +29,20 @@ databases:
   - name: VACUUM schema.table;
     text: VACUUM ANALYZE schema.table;
     values:
-  sqlFiles:
+  - name: INSERT data
+    test: INSERT INTO  schema.table values($1,$1)
+    values: [1,'test']
   - name: test1
     file: sql/sqlfile1.sql
   - name: test2
     file: sql/sqlfile2.sql
 ````
+
+### Run
+
+```sh
+$ node app.js
+```
 
 ##Parameterized Queries
 
