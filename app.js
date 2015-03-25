@@ -1,7 +1,5 @@
 var yaml = require('yamljs');
 var pg = require('pg');
-var fs = require('fs');
-var exec = require('child_process').exec;
 
 // Load yaml file using YAML.load
 var nativeObject = yaml.load('config/config.yml');
@@ -73,20 +71,6 @@ for (prop in obj) {
     }
 
 }
-
-var yaml = require('yamljs');
-var pg = require('pg');
-var fs = require('fs');
-var exec = require('child_process').exec;
-var prop;
-var aQuerys;
-var aSQLFiles;
-var client;
-var query;
-var aQuery;
-var envPG = {};
-var spawn;
-var aSQLFile;
 
 // Load yaml file using YAML.load
 nativeObject = yaml.load('config/config.yml');
