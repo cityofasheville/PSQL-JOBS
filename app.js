@@ -5,7 +5,6 @@ var exec = require('child_process').exec;
 
 // Load yaml file using YAML.load
 var nativeObject = yaml.load('config/config.yml');
-
 var obj = nativeObject.databases;
 var prop;
 var aQuerys;
@@ -29,7 +28,6 @@ for (prop in obj) {
             console.error("%s", err);
         }
     });
-
     for (aQuery in aQuerys) {
         query = client.query(aQuerys[aQuery], function (err) {
             'use strict';
