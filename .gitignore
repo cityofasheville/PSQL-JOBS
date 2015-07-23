@@ -1,8 +1,14 @@
 # Logs
 logs
 *.log
-config/*.yml
-config/*.yaml
+config/db.yml
+config/db.yaml
+db.yml
+db.yaml
+config/config.yml
+config/config.yaml
+config.yml
+config.yaml
 
 
 # Runtime data

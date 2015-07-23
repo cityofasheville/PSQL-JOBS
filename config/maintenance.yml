@@ -1,0 +1,7 @@
+sql:
+- name: TRUNCATE TABLE  coagis.bc_address_centerline_id_disconnected 
+  text: TRUNCATE TABLE coagis.bc_address_centerline_id_disconnected;
+  values:
+- name: update coagis.bc_address_centerline_id_disconnected
+  text: INSERT INTO coagis.bc_address_centerline_id_disconnected SELECT a.civicaddress_id, b.centerline_id, a.shape FROM coagis.bc_address_centerline_id_view a LEFT JOIN coagis.bc_street b ON a.centerline_id = b.centerline_id WHERE b.centerline_id IS NULL;
+  values:
