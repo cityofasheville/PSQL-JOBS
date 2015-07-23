@@ -1,0 +1,64 @@
+sql:
+- name: VACUUM bc_address
+  text: VACUUM FULL FREEZE ANALYZE coagis.bc_address;
+  values:
+- name: reindex i443mrc
+  text: REINDEX INDEX coagis.i443mrc;
+  values:
+- name: reindex i443pinnum
+  text: REINDEX INDEX coagis.i443pinnum;
+  values:
+- name: reindex i443address
+  text: REINDEX INDEX coagis.i443address;
+  values:
+- name: reindex idx_bc_address_civicaddress_id 
+  text: REINDEX INDEX coagis.idx_bc_address_civicaddress_id;
+  values:
+- name: reindex idx_bc_address_street_name
+  text: REINDEX INDEX coagis.idx_bc_address_street_name;
+  values:
+- name: VACUUM bc_property
+  text: VACUUM FULL FREEZE ANALYZE coagis.bc_property;
+  values:
+- name: reindex i482owner
+  text: REINDEX INDEX coagis.i482owner;
+  values:
+- name: reindex i482pinnum
+  text: REINDEX INDEX coagis.i482pinnum;
+  values:
+- name: reindex i482owner
+  text: REINDEX INDEX coagis.i482owner;
+  values:
+- name: reindex i482subname
+  text: REINDEX INDEX coagis.i482subname;
+  values:
+- name: reindex i482deedbook
+  text: REINDEX INDEX coagis.i482deedbook;
+  values:
+- name: reindex i482deedpage
+  text: REINDEX INDEX coagis.i482deedpage;
+  values:
+- name: calculate bc_street maximo type 1
+  text: update coagis.bc_street set maximo_type='STREET', maximo_seq_num=-9999;
+  values:
+- name: calculate bc_street maximo type 2
+  text: update coagis.bc_street set asset_code=maximo_type || centerline_id::bigint::varchar;
+  values:
+- name: calculate bc_street min range
+  text: update coagis.bc_street set min_range = LEAST( left_from_address,left_to_address,right_from_address,right_to_address);
+  values:
+- name: calculate bc_street max range
+  text: update coagis.bc_street set max_range = GREATEST( left_from_address,left_to_address,right_from_address,right_to_address);
+  values:
+- name: calculate bc_address max type and seq num 1
+  text: update coagis.bc_address set maximo_type='ADDR', maximo_seq_num=civicaddress_id;
+  values:
+- name: calculate bc_address max type and seq num 2
+  text: update coagis.bc_address set asset_code=maximo_type || civicaddress_id::bigint::varchar;
+  values:
+- name: calculate bc_address mrc
+  text: update coagis.bc_address set mrc=(SELECT mrc FROM coagis.coa_districts_water as mrctbl WHERE st_intersects(mrctbl.shape,bc_address.shape ) limit 1)::character  varying(8)
+  values:
+- name: calculate bc_street mrc
+  text: update coagis.bc_street set mrc=(SELECT mrc FROM coagis.coa_districts_water as mrctbl WHERE st_intersects(mrctbl.shape,bc_street.shape ) limit 1)::character  varying(8)
+  values:
