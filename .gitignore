@@ -1,10 +1,10 @@
 # Logs
 logs
 *.log
-config/db.yml
-config/db.yaml
-db.yml
-db.yaml
+config/db*.yml
+config/db*.yaml
+db*.yml
+db*.yaml
 config/config.yml
 config/config.yaml
 config.yml
