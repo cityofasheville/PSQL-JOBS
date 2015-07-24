@@ -1,0 +1,4 @@
+sql:
+- name: vaccum coawarehouse
+  text: VACUUM FULL ANALYZE;
+  values:

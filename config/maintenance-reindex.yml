@@ -1,0 +1,4 @@
+sql:
+- name: reindex coawarehouse
+  text: REINDEX DATABASE  coagiswarehouse;
+  values:
