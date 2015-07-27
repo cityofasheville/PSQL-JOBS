@@ -1,0 +1,25 @@
+sql:
+- name: calc mrc for street
+  text: update coagis.bc_street as bcstr set mrc = cf.mrc from coagis.bc_street_crossreference_gis_table as cf where bcstr.objectid = cf.objectid and cf.mrc is not null;
+  values:
+- name: calc pinnum for address
+  test: update coagis.bc_address as adpts SET pinnum =  cf.pinnum , mrc = cf.mrc from coagis.bc_address_pinnum_crossreference_gis_table  as cf where adpts.objectid = cf.objectid and cf.mrc is not null;
+  values:
+- name: calc truckday for addres
+  test: update coagis.bc_address as adpts set truckday = sc.truckday from coagis.coa_sanitation_customers_table sc where adpts.pinnum=sc.pinnum;
+  values: 
+- name: calc mrc for street county
+  test: update coagis.bc_street set mrc = 'c' where mrc is null;
+  values:
+- name: calc mrc for address county
+  test: update coagis.bc_address set mrc = 'c' where mrc is null;"
+  values:
+- name: calc deed url after 1994
+  test: update coagis.bc_property  set deedurl = 'http://registerofdeeds.buncombecounty.org/external/LandRecords/protected/SrchBookPage.aspx?bAutoSearch=true&bk=' || deedbook || '&pg=' || deedpage || '&idx=CRP' where EXTRACT( YEAR FROM deeddate::timestamp without time zone) >= 1995;
+  values:
+- name: calc deed url before 1995
+  test: update coagis.bc_property  set deedurl = 'http://registerofdeeds.buncombecounty.org/external/LandRecords/protected/SrchBookPage.aspx?bAutoSearch=true&bk=' || deedbook || '&pg=' || deedpage || '&idx=DEE' where EXTRACT( YEAR FROM deeddate::timestamp without time zone) < 1995;
+  values:
+- name: calc plat url
+  test: update coagis.bc_property  set platurl = 'http://registerofdeeds.buncombecounty.org/external/LandRecords/protected/SrchBookPage.aspx?bAutoSearch=true&bk=' || platbook ||'&pg=' || platpage ||'&idx=ALL';
+  values:

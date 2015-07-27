@@ -1,0 +1,4 @@
+sql:
+- name: updating spatail extent
+  text: update sde.sde_layers set minx = 855906.26039277, miny = 625247.322860524, maxx = 1045924.80194286, maxy = 762762.333263025 where minx > 999900000000000000000008776376;
+  values:
