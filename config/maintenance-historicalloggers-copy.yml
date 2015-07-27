@@ -1,0 +1,25 @@
+sql:
+- name: TRUNCATE TABLE coagis.bc_property_yesterday;
+  text: TRUNCATE TABLE coagis.bc_property_yesterday;
+  values:
+- name: TRUNCATE TABLE coagis.bc_street_yesterday;
+  text: TRUNCATE TABLE coagis.bc_street_yesterday;
+  values:
+- name: TRUNCATE TABLE coagis.bc_address_yesterday;
+  text: TRUNCATE TABLE coagis.bc_address_yesterday;
+  values:
+- name: TRUNCATE TABLE coagis.coa_districts_zoning_yesterday;
+  text: TRUNCATE TABLE coagis.coa_districts_zoning_yesterday;
+  values:
+- name: update coagis.bc_property_yesterday
+  text: INSERT INTO coagis.bc_property_yesterday select objectid::integer, pinnum::character varying(50), pin::character varying(15), pinext::character varying(50), trim("owner")::character varying(50), nmptype::character varying(150), taxyear::character varying(50), condounit::character varying(50), condobuilding::character varying(50), deedbook::character varying(50), deedpage::character varying(50), platbook::character varying(50), platpage::character varying(50), subname::character varying(50), sublot::character varying(50), subblock::character varying(50), subsect::character varying(50), updatedate::character varying(50), housenumber::character varying(50), numbersuffix::character varying(50), direction::character varying(50), streetname::character varying(50), streettype::character varying(50), township::character varying(50), acreage::numeric(38,8), accountnumber::character varying(50), deeddate::character varying(50), stamps::numeric(38,8), instrument::character varying(50), reason::character varying(50), county::character varying(50), city::character varying(50), firedistrict::character varying(50), schooldistrict::character varying(50), careof::character varying(50), address::character varying(50), cityname::character varying(50), state::character varying(50), zipcode::character varying(50), "class"::character varying(50), improved::character varying(50), exempt::character varying(50), priced::character varying(50), totalmarketvalue::numeric(38,8), appraisedvalue::numeric(38,8), taxvalue::numeric(38,8), landuse::character varying(50), neighborhoodcode::character varying(50), landvalue::numeric(38,8), buildingvalue::numeric(38,8), improvementvalue::numeric(38,8), appraisalarea::character varying(50), state_route::character varying(50), state_route_suffix::character varying(50), propcard::character varying(150), oldpinnum::character varying(50), citystatezip::character varying(50), deedurl::character varying(254),platurl::character varying(254),shape::geometry from coagis.bc_property;
+  values:
+- name: update coagis.bc_street_yesterday;
+  text: INSERT INTO coagis.bc_street_yesterday select   objectid::integer, centerline_id::numeric(38,8), road_class::integer, street_prefix::character varying(2), street_name::character varying(30), street_type::character varying(4), street_postdirection::character varying(2), street_dupe::character varying(1), full_street_name::character varying(32), speed_limit::integer, lane_count::integer, left_from_address::integer, left_to_address::integer, right_from_address::integer, right_to_address::integer, user_id::character varying(8), create_date::timestamp without time zone, change_date::timestamp without time zone, lesn::integer, resn::integer, lzip::integer, rzip::integer, lcommcode::character varying(4), rcommcode::character varying(4), route_id::character varying(20), maximo_type::character varying(30), maximo_seq_num::integer, asset_code::character varying(50), mrc::character varying(8), min_range::integer, max_range::integer, shape::geometry from coagis.bc_street;
+  values:
+- name: update coagis.bc_address_yesterday;
+  text: INSERT INTO coagis.bc_address_yesterday select   objectid::integer, x::numeric(38,8), y::numeric(38,8), address::character varying(40), "number"::integer, apt::character varying(4), prefix::character varying(2), street_name::character varying(30), street_type::character varying(4), postdirection::character varying(2), civicaddress_id::numeric(38,8), location_type::integer, change_date::timestamp without time zone, city::character varying(4), zipcode::integer, maximo_type::character varying(30), maximo_seq_num::integer, asset_code::character varying(50), mrc::character varying(8), pinnum::character varying(15), truckday::character varying(10), shape::geometry from coagis.bc_address;
+  values:
+- name: update coagis.coa_districts_zoning_yesterday;
+  text: INSERT INTO coagiswarehouse.coagis.coa_districts_zoning_yesterday select objectid::integer, districts::character varying(12), municodepage::character varying(254), acreage::numeric(38,8), squaremiles::numeric(38,8), pp_weight::integer, edit_date::timestamp without time zone, edit_by::character varying(100), shape::geometry,pid::integer from coagis.coa_districts_zoning; 
+  values:
