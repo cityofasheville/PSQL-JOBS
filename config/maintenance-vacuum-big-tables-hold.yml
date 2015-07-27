@@ -1,0 +1,26 @@
+sql:
+- name: VACUUM FULL ANALYZE coa_database_utilization_table
+  text: VACUUM FULL ANALYZE coagis.coa_database_utilization_table;
+  values:
+- name: VACUUM FULL ANALYZE coa_database_connections_table
+  text: VACUUM FULL ANALYZE coagis.coa_database_connections_table;
+  values:
+- name: VACUUM FULL ANALYZE coagis.coa_historical_logger_bc_property
+  text: VACUUM FULL ANALYZE coagis.coa_historical_logger_bc_property;
+  values:
+- name: VACUUM FULL ANALYZE coagis.accela_gis_attribute_cache
+  text: VACUUM FULL ANALYZE coagis.accela_gis_attribute_cache;
+  values:
+- name: VACUUM FULL ANALYZE coagis.bc_property_yesterday
+  text: VACUUM FULL ANALYZE coagis.bc_property_yesterday;
+  values:
+- name: VACUUM FULL ANALYZE coagis.bc_property
+  text: VACUUM FULL ANALYZE coagis.bc_property;
+  values:
+- name: VACUUM FULL ANALYZE coagis.bc_address
+  text: VACUUM FULL ANALYZE coagis.bc_address;
+  values:
+- name: VACUUM FULL ANALYZE coagis.bc_street
+  text: VACUUM FULL ANALYZE coagis.bc_street;
+  values:
+
