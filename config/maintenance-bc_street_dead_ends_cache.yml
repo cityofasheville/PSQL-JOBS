@@ -1,0 +1,7 @@
+sql:
+- name: TRUNCATE TABLE coagis.bc_street_dead_ends_cache
+  text: TRUNCATE TABLE coagis.bc_street_dead_ends_cache;
+  values:
+- name: update coagis.bc_street_dead_ends_cache
+  text: insert into coagis.bc_street_dead_ends_cache (select objectid,centerline_id,shape from coagis.coa_bc_street_dead_ends_view);
+  values:

@@ -1,0 +1,7 @@
+sql:
+- name: TRUNCATE TABLE coagis.coa_maximo_tickets_open_cache
+  text: TRUNCATE TABLE coagis.coa_maximo_tickets_open_cache;
+  values:
+- name: update coagis.coa_maximo_tickets_open_cache
+  text: insert into coagis.coa_maximo_tickets_open_cache ( select distinct objectid, mxsiteid, description, status, classification, servicegroup, mxticketid, shape, statusdate,reportdate from coagis.coa_maximo_tickets_open_forcache_view order by mxticketid);
+  values:
