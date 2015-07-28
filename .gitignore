@@ -1,6 +1,7 @@
 # Logs
 logs
 *.log
+log/*.log
 config/db*.yml
 config/db*.yaml
 db*.yml
