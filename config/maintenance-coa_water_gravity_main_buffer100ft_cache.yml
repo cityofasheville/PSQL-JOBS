@@ -1,0 +1,7 @@
+sql:
+- name: TRUNCATE TABLE coagis.coa_water_gravity_main_buffer100ft
+  text: TRUNCATE TABLE coagis.coa_water_gravity_main_buffer100ft;
+  values:
+- name: update coa_water_gravity_main_buffer100ft
+  text: INSERT INTO coagis.coa_water_gravity_main_buffer100ft SELECT st_union (shape) as shape FROM  ( SELECT  st_buffer (shape, 100) as shape, objectid as objectid FROM coagis.coa_water_gravity_main GROUP BY shape, objectid) watermain; 
+  values:
