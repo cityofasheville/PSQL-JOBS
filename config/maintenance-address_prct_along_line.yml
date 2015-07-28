@@ -1,0 +1,7 @@
+sql:
+- name: TRUNCATE TABLE coagis.bc_address_prct_along_line;
+  text: TRUNCATE TABLE coagis.bc_address_prct_along_line;
+  values:
+- name: update bc_address_prct_along_line
+  text: INSERT INTO coagis.bc_address_prct_along_line SELECT DISTINCT b.civicaddress_id, st_makeline (b.shape, a.shape)::geometry as shape FROM coagis.bc_address_interpolated_point_street_view a, coagis.bc_address b  WHERE a.civicaddress_id = b.civicaddress_id and b.location_type = 1  ORDER BY b.civicaddress_id ASC;
+  values:

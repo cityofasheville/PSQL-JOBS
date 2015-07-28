@@ -1,0 +1,7 @@
+sql:
+- name: TRUNCATE TABLE coagis.bc_address_prct_along_crossed_lines
+  text: TRUNCATE TABLE coagis.bc_address_prct_along_crossed_lines;
+  values:
+- name: update bc_address_prct_along_crossed_lines
+  text: INSERT INTO coagis.bc_address_prct_along_crossed_lines SELECT a.civicaddress_id, a.shape as shape FROM coagis.bc_address_prct_along_line a, coagis.bc_address_prct_along_line b WHERE st_crosses (a.shape, b.shape) GROUP BY a.shape, a.civicaddress_id;
+  values:

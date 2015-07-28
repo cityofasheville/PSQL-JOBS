@@ -1,0 +1,7 @@
+sql:
+- name: TRUNCATE TABLE coagis.bc_address_not_in_street_range
+  text: TRUNCATE TABLE coagis.bc_address_not_in_street_range;
+  values:
+- name: update bc_address_not_in_street_range
+  text: INSERT INTO coagis.bc_address_not_in_street_range SELECT b.civicaddress_id, b.street_number, a.min_range, a.max_range, b.shape FROM coagis.bc_street a LEFT JOIN coagis.bc_location_civicaddress_view b on a.centerline_id = b.centerline_id WHERE (b.street_number > a.max_range or b.street_number < a.min_range) and b.street_number <> 99999;
+  values:

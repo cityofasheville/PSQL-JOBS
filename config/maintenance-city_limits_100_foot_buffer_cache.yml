@@ -1,0 +1,7 @@
+sql:
+- name: truncate table coagis.coa_city_limits_100_foot_buffer_cache
+  text: truncate table coagis.coa_city_limits_100_foot_buffer_cache;
+  values:
+- name: update coa_city_limits_100_foot_buffer_cache
+  text: insert into coagis.coa_city_limits_100_foot_buffer_cache (SELECT objectid as objectid,jurisdiction_type,'Asheville'::varchar(50) as label,st_buffer(shape,100)::geometry as shape FROM coagis.coa_active_jurisdictions  WHERE jurisdiction_type =  'Asheville Corporate Limits');
+  values:

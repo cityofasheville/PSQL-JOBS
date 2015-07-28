@@ -1,0 +1,7 @@
+sql:
+- name: TRUNCATE TABLE coagis.bc_address_percent_along
+  text: TRUNCATE TABLE coagis.bc_address_percent_along;
+  values:
+- name: update bc_address_percent_along
+  text: INSERT INTO coagis.bc_address_percent_along  SELECT street.centerline_id::numeric(38,8) as centerline_id, loc.civicaddress_id::numeric(38,8) as civicaddress_id, ((loc.number-street.min_range)/((street.max_range-street.min_range)::decimal(10,2)+1)::decimal(10,2))::decimal(10,4) as percent_along, loc.shape  FROM coagis.bc_street as street LEFT JOIN coagis.bc_address_centerline_id_view as loc on street.centerline_id = loc.centerline_id  WHERE (loc.number <> 99999 and loc.number <> 0)  and ((street.max_range-street.min_range) <> 0) and (loc.number <= street.max_range and loc.number >= street.min_range);
+  values:
