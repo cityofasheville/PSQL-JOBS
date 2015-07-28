@@ -1,0 +1,7 @@
+sql:
+- name: TRUNCATE TABLE coagis.bc_street_generalized
+  text: TRUNCATE TABLE coagis.bc_street_generalized;
+  values:
+- name: update bc_street_generalized
+  text: INSERT INTO coagis.bc_street_generalized SELECT   max(objectid) AS objectid, full_street_name, ST_Multi(st_union(st_simplifypreservetopology(bc_street.shape,0.5))) AS shape, road_class::integer AS road_class FROM coagis.bc_street GROUP BY full_street_name,road_class; 
+  values:

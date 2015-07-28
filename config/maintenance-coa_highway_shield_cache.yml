@@ -1,0 +1,7 @@
+sql:
+- name: truncate coagis.coa_highway_shield_cache
+  text: truncate coagis.coa_highway_shield_cache;
+  values:
+- name: update coa_highway_shield_cache
+  text: insert into coagis.coa_highway_shield_cache (select * from coagis.coa_highway_shield_view);
+  values:

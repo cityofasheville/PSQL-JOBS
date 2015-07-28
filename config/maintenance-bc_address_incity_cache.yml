@@ -1,0 +1,7 @@
+sql:
+- name: TRUNCATE TABLE coagis.bc_address_incity_cache
+  text: TRUNCATE TABLE coagis.bc_address_incity_cache;
+  values:
+- name: update bc_address_incity_cache
+  text: INSERT INTO coagis.bc_address_incity_cache   SELECT DISTINCT a.civicaddress_id, a.address, (SELECT string_agg(tp,',')::text FROM (SELECT b.jurisdiction_type::text as tp FROM coagis.coa_active_jurisdictions b WHERE st_contains(b.shape,a.shape) ) as hold)::text as jurisduction   FROM coagis.bc_address as a;
+  values:
