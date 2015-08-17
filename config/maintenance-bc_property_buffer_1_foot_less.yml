@@ -1,0 +1,7 @@
+sql:
+- name: TRUNCATE TABLE coagis.bc_property_buffer_1_foot_less
+  text: TRUNCATE TABLE coagis.bc_property_buffer_1_foot_less;
+  values:
+- name: update bc_property_buffer_1_foot_less
+  text: INSERT INTO coagis.bc_property_buffer_1_foot_less SELECT objectid, pinnum, pin, pinext, st_multi(st_buffer(shape,-4)) as shape FROM coagis.bc_property;
+  values:
