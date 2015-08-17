@@ -44,6 +44,9 @@ sql:
 - name: update trailing comma in INSPECTION GROUP 
   text: update coagis.accella_parcel_attr_cache SET  L1_attrib_value  = substring(L1_attrib_value,0,length(L1_attrib_value)) WHERE L1_attrib_temp_name = 'INSPECTION GROUP'  and substring(L1_attrib_value,length(L1_attrib_value),length(L1_attrib_value)) = ',';
   values:
+- name: remove null address ids
+  text: delete from coagis.accella_parcel_attr_cache where l1_parcel_nbr_patt is null;
+  values:
 - name: vaccum
   text: VACUUM ANALYZE coagis.accella_parcel_attr_cache;
   values:
