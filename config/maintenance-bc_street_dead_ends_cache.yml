@@ -3,5 +3,5 @@ sql:
   text: TRUNCATE TABLE coagis.bc_street_dead_ends_cache;
   values:
 - name: update coagis.bc_street_dead_ends_cache
-  text: insert into coagis.bc_street_dead_ends_cache (select max(objectid),centerline_id,ST_Union(shape)::geometry from coagis.coa_bc_street_dead_ends_view group by centerline_id);
+  text: insert into coagis.bc_street_dead_ends_cache (select max(objectid),centerline_id,ST_Multi(ST_Union(shape))::geometry(MultiLineString,2264) AS shape from coagis.coa_bc_street_dead_ends_view group by centerline_id);
   values:
