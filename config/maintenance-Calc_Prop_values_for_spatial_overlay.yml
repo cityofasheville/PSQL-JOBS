@@ -1,9 +1,9 @@
 sql:
 - name: calc mrc for street
-  text: update coagis.bc_street as bcstr set mrc = cf.mrc from coagis.bc_street_crossreference_gis_table as cf where bcstr.objectid = cf.objectid and cf.mrc is not null;
+  text: update coagis.bc_street as bcstr set mrc = cf.mrc from coagis.bc_street_crossreference_gis_table as cf where bcstr.centerline_id = cf.centerline_id and cf.mrc is not null;
   values:
 - name: calc pinnum for address
-  text: update coagis.bc_address as adpts SET pinnum =  cf.pinnum , mrc = cf.mrc from coagis.bc_address_pinnum_crossreference_gis_table  as cf where adpts.objectid = cf.objectid and cf.mrc is not null;
+  text: update coagis.bc_address as adpts SET pinnum =  cf.pinnum , mrc = cf.mrc from coagis.bc_address_pinnum_crossreference_gis_table  as cf where adpts.civicaddress_id = cf.civicaddress_id and cf.mrc is not null;
   values:
 - name: calc truckday for addres
   text: update coagis.bc_address as adpts set truckday = sc.truckday from coagis.coa_sanitation_customers_table sc where adpts.pinnum=sc.pinnum;
