@@ -1,0 +1,11 @@
+sql:
+- name: VACUUM FULL ANALYZE coagis.bc_property
+  text: VACUUM FULL ANALYZE coagis.bc_property;
+  values:
+- name: VACUUM FULL ANALYZE coagis.bc_address
+  text: VACUUM FULL ANALYZE coagis.bc_address;
+  values:
+- name: VACUUM FULL ANALYZE coagis.bc_street
+  text: VACUUM FULL ANALYZE coagis.bc_street;
+  values:
+
